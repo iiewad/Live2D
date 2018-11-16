@@ -9,7 +9,10 @@ TODO: Delete this and the text above, and describe your gem
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'live2d'
+group :jekyll_plugins do
+  ...
+  gem 'live2d', '~> 0.1.0'
+end
 ```
 
 And then execute:
@@ -22,7 +25,53 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Download Live2D_WEBGL_SDK
+
+Download [Live2D_SDK_WebGL](http://app2.live2d.com/cubism/sdk/bowiuex/webgl/Live2D_SDK_WebGL_2.1.00_1_jp.zip)
+
+### Jekyll Blog Assets
+```shell
+➜  iiewad.github.io git:(dev) ✗ tree assets
+assets
+├── javascripts
+│   ├── Simple.js
+│   └── live2d.min.js
+├── main.js
+├── minima-social-icons.svg
+└── models
+    ├── Epsilon2.1
+    │   ├── Epsilon2.1.2048
+    │   │   └── texture_00.png
+            └── ...
+... │ ... │ ...
+```
+
+### Config Live2D Style
+
+```
+live2d:
+  style:
+    width: 100
+    height: 100
+    position: 'fixed'
+    top: 100
+    bottom: 0
+    left: 100
+    right: 0
+```
+
+### Insert the live2D Tag
+
+```html
+#_includes/live2d.html
+
+{% render_live2d %}
+```
+```html
+#_includes/footer.html
+{%- include live2d.html -%}
+```
+
 
 ## Development
 
@@ -32,7 +81,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/live2d. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/[iiewad]/live2d. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
