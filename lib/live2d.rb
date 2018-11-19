@@ -5,7 +5,7 @@ module Jekyll
     def initialize(tag_name, text, tokens)
       @config = Jekyll.configuration({})['live2d']
       if text.empty?
-        if @config['live2d']
+        if @config
           @width = @config['style']['width']
           @height = @config['style']['height']
           @position = @config['style']['position']
@@ -14,8 +14,8 @@ module Jekyll
           @left = @config['style']['left']
           @right = @config['style']['right']
         else
-          @width = '200'
-          @height = '200'
+          @width = '150'
+          @height = '150'
           @position = 'fixed'
           @top = '100'
           @bottom = '0'
@@ -36,11 +36,11 @@ module Jekyll
         style="
         width: #{@width}px;
         height: #{@height}px;
-        position: #{@position};
-        top: #{@top}px;
-        bottom: #{@bottom}px;
-        left: #{@left}px;
-        right: #{@right}px;
+        position: fixed;
+        top: #{@top};
+        bottom: #{@bottom};
+        left: #{@left};
+        right: #{@right};
         "
         >
         </canvas>
